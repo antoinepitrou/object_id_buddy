@@ -13,10 +13,16 @@ function jamItHome(output) {
   document.getElementById("object-id-output").innerHTML = output;
 }
 
+function autoSelect(output){
+  this.focus();
+  this.select();
+}
+
 document.getElementById("object-id-form").addEventListener("submit", function(e) {
   e.preventDefault();
   var input = getText();
   var output = addObjectIdWrapper(input);
 
   jamItHome(output);
+  autoSelect(output);
 })
