@@ -1,7 +1,7 @@
 function addObjectIdWrapper(text) {
 
-  var re = new RegExp(/"[a-f\d]{24}"/, 'ig');
-  return text.replace(re, "ObjectId($&)");
+  var re = new RegExp(/[a-f\d]{24}/, 'ig');
+  return text.replace(re, "ObjectId(\"$&\")");
 
 }
 
@@ -13,9 +13,10 @@ function jamItHome(output) {
   document.getElementById("object-id-output").innerHTML = output;
 }
 
-function autoSelect(output){
-  this.focus();
-  this.select();
+function autoSelect(){
+  output.addEventListener("focus", function() {
+    this.select();
+  });
 }
 
 document.getElementById("object-id-form").addEventListener("submit", function(e) {
@@ -24,5 +25,5 @@ document.getElementById("object-id-form").addEventListener("submit", function(e)
   var output = addObjectIdWrapper(input);
 
   jamItHome(output);
-  autoSelect(output);
+  autoSelect();
 })
