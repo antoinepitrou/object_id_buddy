@@ -1,7 +1,7 @@
 function addObjectIdWrapper(text) {
 
-  var re = new RegExp(/[a-f\d]{24}/, 'ig');
-  return text.replace(re, "ObjectId(\"$&\")");
+  var re = new RegExp(/"?([a-f\d]{24})"?/, 'ig');
+  return text.replace(re, "ObjectId(\"$1\")");
 
 }
 
