@@ -14,7 +14,7 @@ function jamItHome(output) {
 }
 
 function autoSelect(){
-  output.addEventListener("focus", function() {
+  document.getElementById("object-id-output").addEventListener("focus", function() {
     this.select();
   });
 }
